@@ -5,22 +5,22 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-
+// activity that displays and manages the battle betwen lutemons
 public class BattleViewActivity extends AppCompatActivity implements Battle.BattleListener {
 
-    private TextView textViewBattleLog;
-    private Button btnBackToArena;
-    private StringBuilder battleLog;
+    private TextView textViewBattleLog; // displays progress
+    private Button btnBackToArena;  // returns to battle selection
+    private StringBuilder battleLog; // gathers battle messages
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_view);
-
+    // ui
         textViewBattleLog = findViewById(R.id.textViewBattleLog);
         btnBackToArena = findViewById(R.id.btnBackToArena);
         battleLog = new StringBuilder();
-
+    // set up
         btnBackToArena.setOnClickListener(v -> finish());
 
         // Get the Lutemons from the intent
@@ -40,18 +40,18 @@ public class BattleViewActivity extends AppCompatActivity implements Battle.Batt
         }
     }
 
-    @Override
+    @Override // updates the battle log with new messages
     public void onBattleUpdate(String message) {
         battleLog.append(message).append("\n\n");
         textViewBattleLog.setText(battleLog.toString());
     }
 
-    @Override
+    @Override // handles conclusion
     public void onBattleEnd(Lutemon winner, Lutemon loser) {
-        // Remove the loser from storage
+        // remove the loser from storage
         Storage.getInstance().removeLutemon(loser.getId());
 
-        // Return the winner to the battle area
+        // return the winner to the battle area
         Storage.getInstance().moveToBattle(winner.getId());
     }
 }

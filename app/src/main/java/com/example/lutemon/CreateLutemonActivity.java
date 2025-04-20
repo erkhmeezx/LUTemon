@@ -8,15 +8,15 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
-
+// activity to create new lutemons with different types also handles the input for name and type sel
 public class CreateLutemonActivity extends AppCompatActivity {
 
-    private EditText editTextName;
-    private RadioGroup radioGroupTypes;
+    private EditText editTextName; //inp for name
+    private RadioGroup radioGroupTypes; // inp for type
     private RadioButton radioWhite, radioGreen, radioPink, radioOrange, radioBlack;
-    private Button btnCreate;
+    private Button btnCreate; // creation
 
-    @Override
+    @Override // initialiezes and binds all ui comps
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_lutemon);
@@ -32,15 +32,15 @@ public class CreateLutemonActivity extends AppCompatActivity {
 
         btnCreate.setOnClickListener(v -> createLutemon());
     }
-
+    // creates new lutemon based on input
     private void createLutemon() {
         String name = editTextName.getText().toString().trim();
-
+        // validate name inp
         if (name.isEmpty()) {
             Toast.makeText(this, "Please enter a name for your Lutemon", Toast.LENGTH_SHORT).show();
             return;
         }
-
+        // name for new lutemon
         Lutemon newLutemon = null;
         int selectedId = radioGroupTypes.getCheckedRadioButtonId();
 
@@ -59,7 +59,7 @@ public class CreateLutemonActivity extends AppCompatActivity {
         if (newLutemon != null) {
             Storage.getInstance().addLutemon(newLutemon);
             Toast.makeText(this, name + " ("+newLutemon.getColor()+") created successfully!", Toast.LENGTH_SHORT).show();
-            editTextName.setText("");
+            editTextName.setText(""); // resets form for next creation
             radioWhite.setChecked(true);
         }
     }
