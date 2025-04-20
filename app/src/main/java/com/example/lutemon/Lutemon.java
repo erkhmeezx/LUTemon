@@ -1,14 +1,15 @@
 package com.example.lutemon;
 
 public abstract class Lutemon {
+    //instance variables
     protected String name;
     protected String color;
     protected int attack;
     protected int defense;
     protected int experience = 0;
     protected int health;
-    protected int maxHealth;
-    protected int id;
+    protected int maxHealth; // starts with full hp
+    protected int id; // assign id
     private static int idCounter = 0;
 
     public Lutemon(String name, String color, int attack, int defense, int maxHealth) {
