@@ -1,1 +1,2 @@
-This project was done in Android Studio 
+This LUTemon project was done by me using Android Studio.
+
