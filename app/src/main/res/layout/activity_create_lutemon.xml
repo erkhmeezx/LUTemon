@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create New Lutemon"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Lutemon Name"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Lutemon Type:"
+        android:textSize="18sp"
+        android:layout_marginBottom="8dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroupTypes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="24dp">
+
+        <RadioButton
+            android:id="@+id/radioWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="White (Attack: 5, Defense: 4, HP: 20)"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/radioGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Green (Attack: 6, Defense: 3, HP: 19)"/>
+
+        <RadioButton
+            android:id="@+id/radioPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pink (Attack: 7, Defense: 2, HP: 18)"/>
+
+        <RadioButton
+            android:id="@+id/radioOrange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Orange (Attack: 8, Defense: 1, HP: 17)"/>
+
+        <RadioButton
+            android:id="@+id/radioBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Black (Attack: 9, Defense: 0, HP: 16)"/>
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create Lutemon"/>
+
+</LinearLayout>
