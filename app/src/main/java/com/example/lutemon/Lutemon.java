@@ -21,7 +21,7 @@ public abstract class Lutemon {
         this.health = maxHealth;
         this.id = idCounter++;
     }
-
+    // get methods
     public String getName() {
         return name;
     }
@@ -29,7 +29,7 @@ public abstract class Lutemon {
     public String getColor() {
         return color;
     }
-
+    // gets the total attack, returns total attack power
     public int getAttack() {
         return attack + experience;
     }
@@ -53,7 +53,7 @@ public abstract class Lutemon {
     public int getId() {
         return id;
     }
-
+    // setter method
     public void setHealth(int health) {
         this.health = health;
     }
@@ -62,10 +62,11 @@ public abstract class Lutemon {
         this.experience++;
     }
 
+    // restores the hp to maximum
     public void resetHealth() {
         this.health = maxHealth;
     }
-
+    //trains the lutemon, increasing its xp by 1
     public void train() {
         this.experience++;
     }
@@ -74,10 +75,10 @@ public abstract class Lutemon {
         int attackPower = attacker.getAttack();
         int damage = Math.max(0, attackPower - this.defense);
         this.health -= damage;
-
+        // return whether the lutemon is still alive
         return this.health > 0;
     }
-
+    // returns the stats for the lutemon
     @Override
     public String toString() {
         return color + "(" + name + ") att: " + getAttack() +
