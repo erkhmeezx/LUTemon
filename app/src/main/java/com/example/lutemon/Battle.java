@@ -1,11 +1,11 @@
 package com.example.lutemon;
 
 import java.util.ArrayList;
-
-public class Battle {
+// This class handles combat between 2 lutemons
+public class Battle { // callback interface for battles
     public interface BattleListener {
-        void onBattleUpdate(String message);
-        void onBattleEnd(Lutemon winner, Lutemon loser);
+        void onBattleUpdate(String message); // called when battle state changes
+        void onBattleEnd(Lutemon winner, Lutemon loser); // called when battle ends
     }
 
     private Lutemon lutemonA;
@@ -22,7 +22,7 @@ public class Battle {
     public void setBattleListener(BattleListener listener) {
         this.listener = listener;
     }
-
+    //  starts the battle between 2 lutemons
     public void start() {
         Lutemon attacker = lutemonA;
         Lutemon defender = lutemonB;
@@ -61,7 +61,7 @@ public class Battle {
             }
         }
     }
-
+    // logs battle stats of lutemons
     private void logBattleStats(int attackerId, int defenderId) {
         Lutemon a = Storage.getInstance().getLutemonById(attackerId);
         Lutemon b = Storage.getInstance().getLutemonById(defenderId);
@@ -70,7 +70,7 @@ public class Battle {
                 defenderId + ": " + b.toString();
         logBattle(statsMessage);
     }
-
+    // notifies the listener
     private void logBattle(String message) {
         battleLog.add(message);
         if (listener != null) {
