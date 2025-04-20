@@ -6,10 +6,10 @@ public abstract class Lutemon {
     protected String color;
     protected int attack;
     protected int defense;
-    protected int experience = 0;
-    protected int health;
+    protected int experience = 0; // !! exp points gathered through battles and training
+    protected int health;  // current hp
     protected int maxHealth; // starts with full hp
-    protected int id; // assign id
+    protected int id; // assign unique id
     private static int idCounter = 0;
 
     public Lutemon(String name, String color, int attack, int defense, int maxHealth) {
